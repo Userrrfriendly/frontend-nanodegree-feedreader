@@ -1,4 +1,34 @@
+
 # Project Overview
+
+The project is part of the Udacity's Front End NanoDegree program.
+The application performs unit tests with the Jasmine framework on a web-based application that reads RSS feeds (UdaciFeeds).
+Specifically the app performs the following 4 Suites and 7 specs.
+* RSS Feeds
+    * are defined
+    * each feed has URLs that defined and not empty
+    * each feed has a name defined and it is not empty
+* The menu
+    * is hidden by default
+    * displays menu when clicked & hides the menu when clicked again
+* Initial Entries
+    * renders at least a single .entry element within the .feed container
+* New Feed Selection
+    * changes the content when a new feed is loaded
+
+<hr>
+
+## Dependancies:
+* Jasmine
+* jQuery
+* Handlebars.js
+
+## Running the application:
+Since all the dependancies are included in this repository, to run the application simply download or clone this repository and open index.html.
+
+<hr>
+
+# Original Instructions:
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
 

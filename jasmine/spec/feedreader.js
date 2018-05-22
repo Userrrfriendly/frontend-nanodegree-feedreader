@@ -78,16 +78,10 @@ $(function () {
 
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', () => {
-        // beforeEach(function (done) { //removed done as arg
-        //     setTimeout(function () {
-        //         loadFeed(0);
-        //         done();
-        //     }, 3000);
-        // });
-        beforeEach((done)=>{
-            loadFeed(0,done);
-            // done();
-        })
+        beforeEach((done) => {
+            loadFeed(0, done);
+        });
+
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
@@ -105,32 +99,22 @@ $(function () {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        // let $feed = $('.feed');
         let feed = document.querySelector('.feed');
-        let feed0;
-        let feed1;
-        //let feedInnerHTML =[];
-        // const randomFeed = function () {
-        //     //the first index allFeeds[0] is deliberately excluded
-        //     Math.floor(Math.random() * allFeeds.length + 1);
-        // }
-
+        let feedInnerHTML = [];
 
         beforeEach((done) => {
-           loadFeed(0, ()=> {
-               feed0 = feed.innerHTML;
-               loadFeed(1, ()=> {
-                   feed1 = feed.innerHTML;
-                   done();
-               })
-           })
+            loadFeed(0, () => {
+                feedInnerHTML.push(feed.innerHTML);
+                loadFeed(1, () => {
+                    feedInnerHTML.push(feed.innerHTML);
+                    done();
+                });
+            });
         });
 
         it('changes the content when a new feed is loaded', function () {
-            // expect(feed0).toEqual(feed0);
-            // expect(feed1).toEqual(feed1);            
-            expect(feed0).not.toEqual(feed1);
-        })
-    })
+            expect(feedInnerHTML[0]).not.toEqual(feedInnerHTML[1]);
+        });
+    });
 
 }());
